@@ -51,12 +51,12 @@ p{margin:0 0 1em}
 
 /* hero */
 .hero{display:grid;grid-template-columns:1fr 1.05fr;gap:48px;align-items:center;padding:48px 0 72px}
-.hero h1{font-size:clamp(2.3rem,4.8vw,3.9rem)}
+.hero h1{font-size:clamp(2.6rem,5.6vw,4.4rem)}
 .who{display:flex;align-items:center;gap:16px;margin-bottom:28px}
 .portrait{width:88px;height:88px;border-radius:50%;object-fit:cover;background:var(--rule);flex:none;display:grid;place-items:center;font-family:var(--display);font-size:.7rem;color:var(--muted);text-align:center}
 .who .products{color:var(--ink);font-weight:600}
 .who p{margin:0;font-family:var(--display);font-size:1rem;color:var(--muted);line-height:1.35}
-.lede{font-size:1.3rem;max-width:30ch;margin:24px 0 32px}
+.lede{font-size:1.3rem;max-width:34ch;margin:24px 0 32px}
 .actions{display:flex;flex-wrap:wrap;gap:12px}
 .btn{font-family:var(--display);font-weight:600;font-size:1rem;text-decoration:none;padding:12px 20px;border-radius:999px;border:2px solid var(--ink)}
 .btn.primary{background:var(--ink);color:var(--paper)}
@@ -70,9 +70,9 @@ p{margin:0 0 1em}
 .legend i{width:10px;height:10px;border-radius:50%;display:inline-block}
 .field.apps{aspect-ratio:auto;justify-content:center;padding:36px 32px 32px;gap:24px}
 .field.apps figcaption{font-size:.95rem;text-align:left}
-.field.apps ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.field.apps ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .field.apps li{display:flex;flex-direction:column;align-items:center;gap:10px;font-family:var(--display);font-weight:600;font-size:.95rem;text-align:center}
-.field.apps img{width:100%;max-width:88px;height:auto;aspect-ratio:1;border-radius:22%;display:block;box-shadow:0 1px 0 rgba(0,0,0,.06)}
+.field.apps img{width:100%;max-width:112px;height:auto;aspect-ratio:1;border-radius:22%;display:block;box-shadow:0 1px 0 rgba(0,0,0,.06)}
 @media (max-width:420px){.field.apps{padding:24px 18px}.field.apps ul{gap:10px}.field.apps li{font-size:.8rem}}
 .field figcaption{font-family:var(--display);font-size:.85rem;color:var(--muted)}
 @media (max-width:860px){.hero{grid-template-columns:1fr;padding-top:24px}.field{aspect-ratio:1/0.95}}
@@ -193,19 +193,18 @@ footer{padding:24px 0 40px;color:var(--muted);font-family:var(--display);font-si
         <img class="portrait" src="assets/veda.jpg" alt="Veda Nair" width="88" height="88">
         <p>Data scientist at Adobe, San Jose<br><span class="products">Photoshop, Lightroom, Fresco and Firefly</span></p>
       </div>
-      <h1>Segmentation models, AI evals and experiments for creative tools used by millions.</h1>
-      <p class="lede">I find out who's using a product, then build what each of them needs.</p>
+      <h1>Making AI work for every kind of creator.</h1>
+      <p class="lede">Segmentation models, AI evals and experiments for creative tools used by millions.</p>
       <div class="actions">
         <a class="btn primary" href="#work">See my work</a>
         <a class="btn" href="#contact">Get in touch</a>
       </div>
     </div>
-    <figure class="field apps" aria-label="Adobe products I work on: Photoshop, Lightroom, Fresco and Firefly">
+    <figure class="field apps" aria-label="Adobe products I work on: Photoshop, Lightroom and Firefly">
       <figcaption>Products I work on at Adobe</figcaption>
       <ul>
         <li><img src="assets/ps.png" alt="" width="120" height="120"><span>Photoshop</span></li>
         <li><img src="assets/lr.png" alt="" width="120" height="120"><span>Lightroom</span></li>
-        <li><img src="assets/fr.png" alt="" width="120" height="120"><span>Fresco</span></li>
         <li><img src="assets/fi.png" alt="" width="120" height="120"><span>Firefly</span></li>
       </ul>
     </figure>
