@@ -54,6 +54,8 @@ p{margin:0 0 1em}
 .hero h1{font-size:clamp(2.6rem,5.6vw,4.4rem)}
 .who{display:flex;align-items:center;gap:16px;margin-bottom:28px}
 .portrait{width:88px;height:88px;border-radius:50%;object-fit:cover;background:var(--rule);flex:none;display:grid;place-items:center;font-family:var(--display);font-size:.7rem;color:var(--muted);text-align:center}
+.who .li-link{color:inherit;text-decoration:underline;text-decoration-color:var(--rule);text-underline-offset:.2em;text-decoration-thickness:1px}
+.who .li-link:hover{color:var(--seg-a);text-decoration-color:var(--seg-a)}
 .who .products{color:var(--ink);font-weight:600}
 .who p{margin:0;font-family:var(--display);font-size:1rem;color:var(--muted);line-height:1.35}
 .lede{font-size:1.3rem;max-width:34ch;margin:24px 0 32px}
@@ -193,7 +195,7 @@ footer{padding:24px 0 40px;color:var(--muted);font-family:var(--display);font-si
     <div>
       <div class="who">
         <img class="portrait" src="assets/veda.jpg" alt="Veda Nair" width="88" height="88">
-        <p>Data scientist at Adobe, San Francisco Bay Area<br><span class="products">Photoshop, Lightroom, Fresco and Firefly</span></p>
+        <p><a class="li-link" href="https://www.linkedin.com/in/veda-nair" target="_blank" rel="noopener">Data scientist at Adobe, San Francisco Bay Area</a><br><span class="products">Photoshop, Lightroom, Fresco and Firefly</span></p>
       </div>
       <h1>Making AI work for every kind of creator.</h1>
       <p class="lede">Segmentation models, AI evals and experiments for creative tools used by millions.</p>
