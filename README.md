@@ -8,7 +8,7 @@ A single-page static site, hosted free on GitHub Pages. There's no build step: `
 - `resume.pdf`: not added yet. Once a version without your phone number is uploaded, add "Resume" links back to the nav and contact section
 
 ## Adding images
-- **Portrait:** save it as `assets/veda.jpg`, then in `index.html` replace the `<div class="portrait" ...>your<br>photo</div>` line with the `<img>` line in the comment just above it.
+- **Portrait:** `assets/veda.jpg` (480×480, location data removed). To change it, replace that file.
 - **Project images:** in each project, replace `<div class="ph">…</div>` with `<img src="assets/your-image.jpg" alt="what the image shows">`. A 4:3 ratio fits best.
 
 ## Publish on GitHub Pages
