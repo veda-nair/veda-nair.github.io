@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Veda Nair — Data Scientist</title>
+<meta name="description" content="Veda Nair is a data scientist on Adobe Photoshop, building segmentation models, experiments and GenAI evaluation systems for 15M+ users.">
+<meta property="og:title" content="Veda Nair — Data Scientist">
+<meta property="og:description" content="Segmentation, experimentation and GenAI evaluation for Adobe Photoshop's 15M+ users.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EDF0EA;      /* pale sage paper */
+  --sheet:#F8F9F5;      /* raised surface */
+  --ink:#1B2320;        /* green-black text */
+  --muted:#58635E;
+  --rule:#C9D0C8;
+  --seg-a:#3B4DA6;      /* indigo  — creative pros / primary accent */
+  --seg-b:#D99A12;      /* saffron — intermediate */
+  --seg-c:#1E8573;      /* teal    — beginners */
+  --focus:#3B4DA6;
+  --display:"Bricolage Grotesque", system-ui, sans-serif;
+  --text:"Source Serif 4", Georgia, serif;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --paper:#141A18; --sheet:#1B2320; --ink:#E6EBE6; --muted:#9AA6A0; --rule:#2E3833;
+    --seg-a:#8D9BF0; --seg-b:#F0B83F; --seg-c:#4CC2AA; --focus:#8D9BF0;
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--text);font-size:1.125rem;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration-color:var(--seg-a);text-underline-offset:.2em;text-decoration-thickness:2px}
+a:hover{color:var(--seg-a)}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:2px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--display);line-height:1.1;margin:0;font-weight:800;letter-spacing:-.02em}
+p{margin:0 0 1em}
+
+/* nav */
+.nav{display:flex;justify-content:space-between;align-items:center;padding:22px 0}
+.nav .mark{font-family:var(--display);font-weight:800;font-size:1.1rem;text-decoration:none}
+.nav ul{list-style:none;display:flex;gap:28px;margin:0;padding:0;font-family:var(--display);font-size:.95rem}
+.nav ul a{text-decoration:none}
+@media (max-width:640px){.nav ul{gap:16px}.nav ul li.hide-sm{display:none}}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1fr 1.05fr;gap:48px;align-items:center;padding:48px 0 72px}
+.hero h1{font-size:clamp(2.6rem,6vw,4.6rem)}
+.who{display:flex;align-items:center;gap:16px;margin-bottom:28px}
+.portrait{width:72px;height:72px;border-radius:50%;object-fit:cover;background:var(--rule);flex:none;display:grid;place-items:center;font-family:var(--display);font-size:.7rem;color:var(--muted);text-align:center}
+.who p{margin:0;font-family:var(--display);font-size:1rem;color:var(--muted);line-height:1.35}
+.lede{font-size:1.3rem;max-width:30ch;margin:24px 0 32px}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+.btn{font-family:var(--display);font-weight:600;font-size:1rem;text-decoration:none;padding:12px 20px;border-radius:999px;border:2px solid var(--ink)}
+.btn.primary{background:var(--ink);color:var(--paper)}
+.btn.primary:hover{background:var(--seg-a);border-color:var(--seg-a);color:#fff}
+.btn:not(.primary):hover{border-color:var(--seg-a)}
+
+.field{margin:0;background:var(--sheet);border-radius:28px;aspect-ratio:1/0.86;overflow:hidden;display:flex;flex-direction:column;padding:18px 20px 16px}
+.field canvas{flex:1;min-height:0;width:100%;display:block}
+.legend{display:flex;flex-wrap:wrap;gap:6px 18px;font-family:var(--display);font-size:.85rem;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:7px}
+.legend i{width:10px;height:10px;border-radius:50%;display:inline-block}
+.field figcaption{font-family:var(--display);font-size:.85rem;color:var(--muted)}
+@media (max-width:860px){.hero{grid-template-columns:1fr;padding-top:24px}.field{aspect-ratio:1/0.95}}
+
+/* numbers strip */
+.numbers{display:grid;grid-template-columns:repeat(4,1fr);border-top:2px solid var(--ink);border-bottom:1px solid var(--rule)}
+.numbers div{padding:22px 18px 22px 0}
+.numbers b{display:block;font-family:var(--display);font-size:2rem;font-weight:800;letter-spacing:-.02em}
+.numbers span{font-size:.95rem;color:var(--muted);line-height:1.4;display:block;max-width:22ch}
+@media (max-width:760px){.numbers{grid-template-columns:repeat(2,1fr)}}
+
+/* sections */
+section{padding:88px 0 0}
+.sec-head{display:flex;justify-content:space-between;align-items:baseline;gap:24px;margin-bottom:40px}
+.sec-head h2{font-size:clamp(2rem,4vw,2.8rem)}
+.sec-head p{margin:0;color:var(--muted);max-width:42ch}
+@media (max-width:760px){.sec-head{flex-direction:column;gap:8px}}
+
+/* projects */
+.project{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;padding:40px 0;border-top:1px solid var(--rule)}
+.project:nth-of-type(even) .shot{order:2}
+.project h3{font-size:1.75rem;margin-bottom:6px}
+.project .ctx{font-family:var(--display);font-size:.95rem;color:var(--muted);margin-bottom:18px}
+.project dl{margin:0}
+.project dt{font-family:var(--display);font-weight:600;font-size:.95rem;margin-top:14px}
+.project dd{margin:2px 0 0;max-width:58ch}
+.project .result{border-left:4px solid var(--seg-dot,var(--seg-a));padding-left:14px;margin-top:18px;font-weight:600}
+.tools{font-family:var(--display);font-size:.88rem;color:var(--muted);margin-top:16px}
+.shot{margin:0;background:var(--sheet);border-radius:20px;aspect-ratio:4/3;overflow:hidden;display:grid;place-items:center}
+.shot img{width:100%;height:100%;object-fit:cover}
+.shot .ph{padding:24px;text-align:center;font-family:var(--display);font-size:.9rem;color:var(--muted);border:2px dashed var(--rule);border-radius:14px;margin:18px;align-self:stretch;justify-self:stretch;display:grid;place-items:center}
+@media (max-width:860px){.project{grid-template-columns:1fr;gap:20px}.project:nth-of-type(even) .shot{order:0}}
+
+/* github projects */
+.repos{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:0 48px}
+.repos li{padding:24px 0;border-top:1px solid var(--rule)}
+.repos a{text-decoration:none}
+.repos h3{font-size:1.35rem;margin-bottom:8px;text-decoration:underline;text-decoration-color:var(--seg-a);text-underline-offset:.2em;text-decoration-thickness:2px}
+.repos a:hover h3{color:var(--seg-a)}
+.repos p{margin:0;max-width:52ch}
+.repos .tools{margin-top:10px}
+.more{margin-top:20px;font-family:var(--display)}
+@media (max-width:760px){.repos{grid-template-columns:1fr}}
+
+/* experience */
+.timeline{list-style:none;margin:0;padding:0}
+.timeline li{display:grid;grid-template-columns:200px 1fr;gap:24px;padding:24px 0;border-top:1px solid var(--rule)}
+.timeline .when{font-family:var(--display);color:var(--muted);font-size:.95rem}
+.timeline h3{font-size:1.3rem}
+.timeline .org{font-family:var(--display);color:var(--muted);margin:4px 0 10px;font-size:1rem}
+.timeline p{margin:0;max-width:62ch}
+@media (max-width:640px){.timeline li{grid-template-columns:1fr;gap:4px}}
+
+/* recognition + skills */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+.two h2{font-size:2rem;margin-bottom:20px}
+.plain{list-style:none;margin:0;padding:0}
+.plain li{padding:14px 0;border-top:1px solid var(--rule)}
+.plain li strong{font-family:var(--display);font-weight:600}
+.skills dt{font-family:var(--display);font-weight:600;padding-top:14px;border-top:1px solid var(--rule);margin-top:14px}
+.skills dt:first-child{margin-top:0}
+.skills dd{margin:4px 0 0;color:var(--muted)}
+@media (max-width:760px){.two{grid-template-columns:1fr;gap:40px}}
+
+/* contact */
+.contact{margin:96px 0 0;padding:64px 0 72px;border-top:2px solid var(--ink)}
+.contact h2{font-size:clamp(2rem,5vw,3.4rem);max-width:18ch;margin-bottom:24px}
+.contact .links{display:flex;flex-wrap:wrap;gap:12px 28px;font-family:var(--display);font-size:1.1rem}
+footer{padding:24px 0 40px;color:var(--muted);font-family:var(--display);font-size:.85rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="nav" aria-label="Main">
+    <a class="mark" href="#top">Veda Nair</a>
+    <ul>
+      <li><a href="#work">Work</a></li>
+      <li class="hide-sm"><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero" id="top">
+    <div>
+      <div class="who">
+        <!-- Replace with: <img class="portrait" src="assets/veda.jpg" alt="Veda Nair"> -->
+        <div class="portrait" aria-hidden="true">your<br>photo</div>
+        <p>Data scientist, Adobe Photoshop<br>San Jose, California</p>
+      </div>
+      <h1>I find out who's using a product, and build what each of them needs.</h1>
+      <p class="lede">Segmentation models, experiments and GenAI evaluation for Photoshop's 15M+ users.</p>
+      <div class="actions">
+        <a class="btn primary" href="#work">See my work</a>
+        <a class="btn" href="#contact">Get in touch</a>
+      </div>
+    </div>
+    <figure class="field" aria-label="Illustration: thousands of user dots sorting themselves into three skill segments">
+      <figcaption>Each dot is a user. Watch them sort by skill.</figcaption>
+      <canvas id="seg"></canvas>
+      <div class="legend">
+        <span><i style="background:var(--seg-c)"></i>Beginners</span>
+        <span><i style="background:var(--seg-b)"></i>Intermediate</span>
+        <span><i style="background:var(--seg-a)"></i>Creative pros</span>
+      </div>
+    </figure>
+  </header>
+
+  <div class="numbers" role="list">
+    <div role="listitem"><b>15M+</b><span>users routed by my skill segmentation model</span></div>
+    <div role="listitem"><b>2.5M</b><span>Creative Pros protected from experimental rollouts</span></div>
+    <div role="listitem"><b>+10%</b><span>beginner success in week one with guided tutorials</span></div>
+    <div role="listitem"><b>$5M</b><span>yearly cost savings from forecasting at Accenture</span></div>
+  </div>
+
+  <section id="work" aria-labelledby="work-h">
+    <div class="sec-head">
+      <h2 id="work-h">Selected work</h2>
+      <p>Problems I owned end to end, from the first query to the model in production.</p>
+    </div>
+
+    <article class="project" style="--seg-dot:var(--seg-c)">
+      <figure class="shot"><div class="ph">Add an image: the ATLAS tutorial flow or a chart of the skill segments</div></figure>
+      <div>
+        <h3>Skill segmentation for guided learning</h3>
+        <p class="ctx">Adobe Photoshop, 2024 internship</p>
+        <dl>
+          <dt>The problem</dt>
+          <dd>Every Photoshop user saw the same tutorials and GenAI prompts, whether they'd opened the app once or used it daily for a decade.</dd>
+          <dt>What I built</dt>
+          <dd>A skill segmentation model, built from scratch, that sorts 15M+ users by proficiency and routes each to tutorial paths and GenAI experiences that match. It powers ATLAS, Photoshop's guided tutorial system.</dd>
+        </dl>
+        <p class="result">Beginner success rates rose 10% in the first week, and the labels are now used across Adobe for personalization and experiment gating.</p>
+        <p class="tools">Python, PySpark, Databricks, scikit-learn</p>
+      </div>
+    </article>
+
+    <article class="project" style="--seg-dot:var(--seg-a)">
+      <figure class="shot"><div class="ph">Add an image: a diagram of how the segment gates feature rollouts</div></figure>
+      <div>
+        <h3>Pro segmentation for safe rollouts</h3>
+        <p class="ctx">Adobe Photoshop, 2025</p>
+        <dl>
+          <dt>The problem</dt>
+          <dd>Professionals rely on Photoshop for daily, deadline-driven work. An experimental feature that breaks their workflow costs far more than it does for a casual user.</dd>
+          <dt>What I built</dt>
+          <dd>A model that identifies 2.5M Creative Pros so experimental features can be held back from them, while the rest of the 15M+ user base can still be tested.</dd>
+        </dl>
+        <p class="result">Mission-critical workflows stayed regression-free while new features kept shipping to everyone else.</p>
+        <p class="tools">Python, PySpark, MLflow, Databricks</p>
+      </div>
+    </article>
+
+    <article class="project" style="--seg-dot:var(--seg-b)">
+      <figure class="shot"><div class="ph">Add an image: a failure-pattern dashboard (blur any internal data)</div></figure>
+      <div>
+        <h3>Finding where the AI Assistant fails</h3>
+        <p class="ctx">Adobe Photoshop, 2025–present</p>
+        <dl>
+          <dt>The problem</dt>
+          <dd>Photoshop's AI Assistant was in beta with 750K users, and frustrating answers were scattered across thousands of conversations with no way to see the patterns.</dd>
+          <dt>What I built</dt>
+          <dd>A failure-pattern analysis system that runs evaluations over LangSmith traces, groups failures by cause, and points engineers to the fixes with the biggest payoff.</dd>
+        </dl>
+        <p class="result">Faster, targeted fixes for the failures that frustrated beta users most.</p>
+        <p class="tools">Python, LangSmith, LLM evaluation, SQL</p>
+      </div>
+    </article>
+
+    <article class="project" style="--seg-dot:var(--seg-c)">
+      <figure class="shot"><div class="ph">Add an image: an in-product entry point for a GenAI feature</div></figure>
+      <div>
+        <h3>Growing adoption of GenAI features</h3>
+        <p class="ctx">Adobe Photoshop, 2025–present</p>
+        <dl>
+          <dt>The problem</dt>
+          <dd>New GenAI features only matter if people find them at the moment they'd help.</dd>
+          <dt>What I built</dt>
+          <dd>Product-led growth campaigns that surface features through contextual entry points and click-based triggers inside the app, measured with experiments.</dd>
+        </dl>
+        <p class="result">Contributed to the launch and adoption of 5 new GenAI features in Photoshop's flagship AI workflows.</p>
+        <p class="tools">A/B testing, Adobe Analytics, SQL, Python</p>
+      </div>
+    </article>
+
+    <article class="project" style="--seg-dot:var(--seg-a)">
+      <figure class="shot"><div class="ph">Add an image: a sample question and answer from the bot (no internal data)</div></figure>
+      <div>
+        <h3>A self-serve data bot for product managers</h3>
+        <p class="ctx">Adobe Photoshop, 2025</p>
+        <dl>
+          <dt>The problem</dt>
+          <dd>PMs waited on data scientists for routine questions about feature usage.</dd>
+          <dt>What I built</dt>
+          <dd>Telemetry pipelines over a 5TB feature-usage database taking in 5M events a day, plus a reasoning bot that lets PMs ask questions of production data themselves.</dd>
+        </dl>
+        <p class="result">PMs answer their own usage questions, and data science time goes to harder problems.</p>
+        <p class="tools">PySpark, Snowflake, Airflow, LLMs</p>
+      </div>
+    </article>
+
+    <article class="project" style="--seg-dot:var(--seg-b)">
+      <figure class="shot"><div class="ph">Add an image: a forecast-vs-actual chart</div></figure>
+      <div>
+        <h3>Demand forecasting and inventory optimization</h3>
+        <p class="ctx">Accenture, 2021–2023</p>
+        <dl>
+          <dt>The problem</dt>
+          <dd>Supply chain and public-sector clients were losing money to both excess inventory and stockouts.</dd>
+          <dt>What I built</dt>
+          <dd>Recommendation, forecasting and inventory optimization models, delivered end to end.</dd>
+        </dl>
+        <p class="result">85% forecast accuracy, 30% fewer stockouts and excess inventory, and $5M a year in savings.</p>
+        <p class="tools">Python, TensorFlow, Azure</p>
+      </div>
+    </article>
+  </section>
+
+  <section id="code" aria-labelledby="code-h">
+    <div class="sec-head">
+      <h2 id="code-h">Projects on GitHub</h2>
+      <p>Research and side projects with code you can read.</p>
+    </div>
+    <ul class="repos">
+      <li>
+        <a href="https://github.com/veda-nair/gender_bias_nlp_systems"><h3>Detecting gender bias in language models</h3></a>
+        <p>Graduate research at Stony Brook. Tested BERT-family models with occupation prompts and the WinoBias coreference benchmark to measure which jobs models tie to which gender.</p>
+        <p class="tools">Hugging Face Transformers, PyTorch, BERT</p>
+      </li>
+      <li>
+        <a href="https://github.com/veda-nair/song_popularity_predictor"><h3>What makes a song popular</h3></a>
+        <p>Pulled 232,725 tracks across 26 genres from the Spotify API and modeled which audio features predict a song's popularity.</p>
+        <p class="tools">Python, Spotify API, k-nearest neighbors</p>
+      </li>
+      <li>
+        <a href="https://github.com/veda-nair/formula_one_predictor"><h3>Formula One race predictor</h3></a>
+        <p>Built a race dataset from results, qualifying and weather data, then compared classification and regression models for predicting finishing positions.</p>
+        <p class="tools">Python, scikit-learn, neural networks</p>
+      </li>
+      <li>
+        <a href="https://github.com/veda-nair/ecommerce_sentiment_analysis"><h3>Topics in e-commerce reviews</h3></a>
+        <p>Used topic modeling and clustering on clothing reviews to separate good reviews from bad without labels, then checked the result against a supervised classifier.</p>
+        <p class="tools">NLP, topic modeling, clustering</p>
+      </li>
+    </ul>
+    <p class="more"><a href="https://github.com/veda-nair">All projects on GitHub</a></p>
+  </section>
+
+  <section id="experience" aria-labelledby="exp-h">
+    <div class="sec-head"><h2 id="exp-h">Experience</h2></div>
+    <ol class="timeline" reversed>
+      <li>
+        <div class="when">Jan 2025 – now</div>
+        <div><h3>Data Scientist (ML), Photoshop</h3><p class="org">Adobe, San Jose</p>
+        <p>Segmentation, experimentation and GenAI evaluation across Photoshop, working with engineering, product and marketing on P0 launches. Promoted from L2 to L3 within 1.5 years.</p></div>
+      </li>
+      <li>
+        <div class="when">May – Aug 2024</div>
+        <div><h3>Data Science Intern, Photoshop</h3><p class="org">Adobe, San Jose</p>
+        <p>Built the skill segmentation model behind ATLAS, Photoshop's guided tutorial system.</p></div>
+      </li>
+      <li>
+        <div class="when">Jun 2021 – Jul 2023</div>
+        <div><h3>Machine Learning Engineering Analyst</h3><p class="org">Accenture, Bangalore</p>
+        <p>Forecasting, recommendation and inventory models for supply chain and public-sector clients.</p></div>
+      </li>
+    </ol>
+  </section>
+
+  <section aria-label="Recognition, education and skills">
+    <div class="two">
+      <div>
+        <h2>Recognition and education</h2>
+        <ul class="plain">
+          <li><strong>Promoted L2 to L3</strong> at Adobe within 1.5 years</li>
+          <li><strong>Segmentation labels adopted across Adobe</strong> for personalization and experiment gating</li>
+          <li><strong>MS in Data Science</strong>, Stony Brook University, 2024</li>
+          <li><strong>B.Tech</strong>, Vellore Institute of Technology, 2021</li>
+          <!-- Add awards, talks, publications or certifications here -->
+        </ul>
+      </div>
+      <div>
+        <h2>Tools I use</h2>
+        <dl class="skills">
+          <dt>Methods</dt><dd>A/B testing, causal inference, user segmentation, LLM evaluation, ML monitoring and drift tracking, feature engineering</dd>
+          <dt>Languages</dt><dd>Python, SQL, R</dd>
+          <dt>ML and data</dt><dd>scikit-learn, PySpark, pandas, TensorFlow, MLflow, LangSmith</dd>
+          <dt>Platforms</dt><dd>Databricks, Snowflake, Airflow, Azure, Splunk</dd>
+          <dt>Analytics</dt><dd>Adobe Analytics, Tableau, Power BI</dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact" aria-labelledby="contact-h">
+    <h2 id="contact-h">Working on something where users don't all want the same thing? Let's talk.</h2>
+    <div class="links">
+      <a href="mailto:veda.nair09@gmail.com">veda.nair09@gmail.com</a>
+      <a href="https://linkedin.com/in/veda-nair">LinkedIn</a>
+      <a href="https://github.com/veda-nair">GitHub</a>
+    </div>
+  </section>
+  <footer>© 2026 Veda Nair</footer>
+</div>
+
+<script>
+(() => {
+  const canvas = document.getElementById('seg');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const css = getComputedStyle(document.documentElement);
+  const colors = ['--seg-c','--seg-b','--seg-a'].map(v => css.getPropertyValue(v).trim());
+  // share of dots per segment, cluster centers as fractions of the canvas
+  const segs = [
+    {share:.45, cx:.25, cy:.45, sx:.11, sy:.14},
+    {share:.36, cx:.58, cy:.66, sx:.10, sy:.12},
+    {share:.19, cx:.80, cy:.28, sx:.07, sy:.09}
+  ];
+  const N = 700;
+  let W, H, dots = [];
+  // deterministic random so the picture is the same each load
+  let s = 7; const rnd = () => (s = (s * 16807) % 2147483647) / 2147483647;
+  const gauss = () => { let u = 0, v = 0; while(!u) u = rnd(); while(!v) v = rnd(); return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v); };
+
+  function build(){
+    dots = [];
+    segs.forEach((g, gi) => {
+      const n = Math.round(N * g.share);
+      for (let i = 0; i < n; i++){
+        dots.push({ x0: .03 + rnd()*.94, y0: .04 + rnd()*.92,
+                    x1: Math.min(.97, Math.max(.03, g.cx + gauss()*g.sx)),
+                    y1: Math.min(.96, Math.max(.04, g.cy + gauss()*g.sy)),
+                    c: gi, d: rnd()*.35 });
+      }
+    });
+  }
+  function size(){
+    const r = canvas.getBoundingClientRect(), dpr = window.devicePixelRatio || 1;
+    W = r.width; H = r.height; canvas.width = W*dpr; canvas.height = H*dpr;
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+  }
+  const ease = t => t<.5 ? 4*t*t*t : 1 - Math.pow(-2*t+2,3)/2;
+  function draw(t){
+    ctx.clearRect(0,0,W,H);
+    const rad = Math.max(2, W/190);
+    for (const p of dots){
+      const k = ease(Math.min(1, Math.max(0, (t - p.d) / .65)));
+      const x = (p.x0 + (p.x1-p.x0)*k) * W, y = (p.y0 + (p.y1-p.y0)*k) * H;
+      ctx.globalAlpha = .35 + .55*k;
+      ctx.fillStyle = k < .02 ? css.getPropertyValue('--muted').trim() : colors[p.c];
+      ctx.beginPath(); ctx.arc(x, y, rad, 0, Math.PI*2); ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+  }
+  build(); size();
+  if (reduce){ draw(1); }
+  else {
+    const start = performance.now() + 400, dur = 2200;
+    const tick = now => { const t = Math.max(0, (now - start) / dur); draw(t); if (t < 1) requestAnimationFrame(tick); };
+    requestAnimationFrame(tick);
+  }
+  window.addEventListener('resize', () => { size(); draw(1); });
+})();
+</script>
+</body>
+</html>
