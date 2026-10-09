@@ -68,6 +68,12 @@ p{margin:0 0 1em}
 .legend{display:flex;flex-wrap:wrap;gap:6px 18px;font-family:var(--display);font-size:.85rem;color:var(--muted)}
 .legend span{display:inline-flex;align-items:center;gap:7px}
 .legend i{width:10px;height:10px;border-radius:50%;display:inline-block}
+.field.apps{aspect-ratio:auto;min-height:420px;justify-content:center;align-items:center;padding:32px}
+.field.apps figcaption{margin-bottom:28px;font-size:.95rem}
+.field.apps ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,auto);gap:32px 64px}
+.field.apps li{display:flex;flex-direction:column;align-items:center;gap:12px;font-family:var(--display);font-weight:600;font-size:1.05rem}
+.field.apps img{width:clamp(76px,9vw,120px);height:auto;aspect-ratio:1;border-radius:20%;display:block}
+@media (max-width:860px){.field.apps{min-height:0}}
 .field figcaption{font-family:var(--display);font-size:.85rem;color:var(--muted)}
 @media (max-width:860px){.hero{grid-template-columns:1fr;padding-top:24px}.field{aspect-ratio:1/0.95}}
 
@@ -143,12 +149,6 @@ a.shot.news:hover .cover img{transform:scale(1.03)}
 .trail{width:100%;max-width:200px;height:30px;display:block;margin-bottom:6px}
 @media (max-width:760px){.off-grid{grid-template-columns:1fr;gap:28px}}
 
-.shot.apps{display:flex;flex-direction:column;justify-content:center;align-items:center;place-items:center;padding:28px;aspect-ratio:auto;min-height:300px}
-.shot.apps figcaption{font-family:var(--display);font-size:.95rem;color:var(--muted);margin-bottom:20px}
-.shot.apps ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,auto);gap:22px 48px}
-.shot.apps li{display:flex;flex-direction:column;align-items:center;gap:10px;font-family:var(--display);font-weight:600;font-size:1rem}
-.shot.apps img{width:clamp(64px,8vw,96px);height:auto;aspect-ratio:1;border-radius:20%;display:block}
-
 /* experience */
 .timeline{list-style:none;margin:0;padding:0}
 .timeline li{display:grid;grid-template-columns:200px 1fr;gap:24px;padding:24px 0;border-top:1px solid var(--rule)}
@@ -200,14 +200,14 @@ footer{padding:24px 0 40px;color:var(--muted);font-family:var(--display);font-si
         <a class="btn" href="#contact">Get in touch</a>
       </div>
     </div>
-    <figure class="field" aria-label="Illustration: thousands of user dots sorting themselves into three skill segments">
-      <figcaption>Each dot is a user. Watch them sort by skill.</figcaption>
-      <canvas id="seg"></canvas>
-      <div class="legend">
-        <span><i style="background:var(--seg-c)"></i>Beginners</span>
-        <span><i style="background:var(--seg-b)"></i>Intermediate</span>
-        <span><i style="background:var(--seg-a)"></i>Creative pros</span>
-      </div>
+    <figure class="field apps" aria-label="Adobe products I work on: Photoshop, Lightroom, Fresco and Firefly">
+      <figcaption>Products I work on at Adobe</figcaption>
+      <ul>
+        <li><img src="assets/ps.png" alt="" width="120" height="120"><span>Photoshop</span></li>
+        <li><img src="assets/lr.png" alt="" width="120" height="120"><span>Lightroom</span></li>
+        <li><img src="assets/fr.png" alt="" width="120" height="120"><span>Fresco</span></li>
+        <li><img src="assets/fi.png" alt="" width="120" height="120"><span>Firefly</span></li>
+      </ul>
     </figure>
   </header>
 
@@ -271,15 +271,17 @@ footer{padding:24px 0 40px;color:var(--muted);font-family:var(--display);font-si
     </article>
 
     <article class="project" style="--seg-dot:var(--seg-c)">
-      <figure class="shot apps">
-        <figcaption>Products I work on at Adobe</figcaption>
-        <ul>
-          <li><img src="assets/ps.png" alt="" width="96" height="96"><span>Photoshop</span></li>
-          <li><img src="assets/lr.png" alt="" width="96" height="96"><span>Lightroom</span></li>
-          <li><img src="assets/fr.png" alt="" width="96" height="96"><span>Fresco</span></li>
-          <li><img src="assets/fi.png" alt="" width="96" height="96"><span>Firefly</span></li>
-        </ul>
-      </figure>
+      <figure class="shot art" role="img" aria-label="Illustration: a new user routed to one of three tutorial paths by skill level"><svg viewBox="0 0 400 300" aria-hidden="true">
+  <g font-family="Bricolage Grotesque, system-ui, sans-serif" font-size="13" fill="var(--muted)">
+    <circle cx="60" cy="150" r="34" fill="none" stroke="var(--muted)" stroke-width="2" stroke-dasharray="3 5"/>
+    <text x="60" y="154" text-anchor="middle">New user</text>
+    <path d="M96 150 C150 150 160 70 214 70" stroke="var(--seg-c)" stroke-width="3" fill="none"/>
+    <path d="M96 150 L214 150" stroke="var(--seg-b)" stroke-width="3" fill="none"/>
+    <path d="M96 150 C150 150 160 230 214 230" stroke="var(--seg-a)" stroke-width="3" fill="none"/>
+    <rect x="214" y="48" width="160" height="44" rx="22" fill="var(--seg-c)"/><text x="294" y="75" text-anchor="middle" fill="#fff">Basics tutorial path</text>
+    <rect x="214" y="128" width="160" height="44" rx="22" fill="var(--seg-b)"/><text x="294" y="155" text-anchor="middle" fill="#1B2320">Skill-building path</text>
+    <rect x="214" y="208" width="160" height="44" rx="22" fill="var(--seg-a)"/><text x="294" y="235" text-anchor="middle" fill="#fff">Advanced techniques</text>
+  </g></svg><figcaption>Illustration</figcaption></figure>
       <div>
         <h3>Skill segmentation for guided learning</h3>
         <p class="ctx">Adobe Photoshop, 2024 internship</p>
@@ -485,65 +487,5 @@ footer{padding:24px 0 40px;color:var(--muted);font-family:var(--display);font-si
   <footer>© 2026 Veda Nair</footer>
 </div>
 
-<script>
-(() => {
-  const canvas = document.getElementById('seg');
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const css = getComputedStyle(document.documentElement);
-  const colors = ['--seg-c','--seg-b','--seg-a'].map(v => css.getPropertyValue(v).trim());
-  // share of dots per segment, cluster centers as fractions of the canvas
-  const segs = [
-    {share:.45, cx:.25, cy:.45, sx:.11, sy:.14},
-    {share:.36, cx:.58, cy:.66, sx:.10, sy:.12},
-    {share:.19, cx:.80, cy:.28, sx:.07, sy:.09}
-  ];
-  const N = 700;
-  let W, H, dots = [];
-  // deterministic random so the picture is the same each load
-  let s = 7; const rnd = () => (s = (s * 16807) % 2147483647) / 2147483647;
-  const gauss = () => { let u = 0, v = 0; while(!u) u = rnd(); while(!v) v = rnd(); return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v); };
-
-  function build(){
-    dots = [];
-    segs.forEach((g, gi) => {
-      const n = Math.round(N * g.share);
-      for (let i = 0; i < n; i++){
-        dots.push({ x0: .03 + rnd()*.94, y0: .04 + rnd()*.92,
-                    x1: Math.min(.97, Math.max(.03, g.cx + gauss()*g.sx)),
-                    y1: Math.min(.96, Math.max(.04, g.cy + gauss()*g.sy)),
-                    c: gi, d: rnd()*.35 });
-      }
-    });
-  }
-  function size(){
-    const r = canvas.getBoundingClientRect(), dpr = window.devicePixelRatio || 1;
-    W = r.width; H = r.height; canvas.width = W*dpr; canvas.height = H*dpr;
-    ctx.setTransform(dpr,0,0,dpr,0,0);
-  }
-  const ease = t => t<.5 ? 4*t*t*t : 1 - Math.pow(-2*t+2,3)/2;
-  function draw(t){
-    ctx.clearRect(0,0,W,H);
-    const rad = Math.max(2, W/190);
-    for (const p of dots){
-      const k = ease(Math.min(1, Math.max(0, (t - p.d) / .65)));
-      const x = (p.x0 + (p.x1-p.x0)*k) * W, y = (p.y0 + (p.y1-p.y0)*k) * H;
-      ctx.globalAlpha = .35 + .55*k;
-      ctx.fillStyle = k < .02 ? css.getPropertyValue('--muted').trim() : colors[p.c];
-      ctx.beginPath(); ctx.arc(x, y, rad, 0, Math.PI*2); ctx.fill();
-    }
-    ctx.globalAlpha = 1;
-  }
-  build(); size();
-  if (reduce){ draw(1); }
-  else {
-    const start = performance.now() + 400, dur = 2200;
-    const tick = now => { const t = Math.max(0, (now - start) / dur); draw(t); if (t < 1) requestAnimationFrame(tick); };
-    requestAnimationFrame(tick);
-  }
-  window.addEventListener('resize', () => { size(); draw(1); });
-})();
-</script>
 </body>
 </html>
