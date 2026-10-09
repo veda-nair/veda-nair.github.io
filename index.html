@@ -79,10 +79,12 @@ p{margin:0 0 1em}
 
 /* numbers strip */
 .numbers{display:grid;grid-template-columns:repeat(4,1fr);border-top:2px solid var(--ink);border-bottom:1px solid var(--rule)}
-.numbers div{padding:22px 18px 22px 0}
-.numbers b{display:block;font-family:var(--display);font-size:1.6rem;line-height:1.15;font-weight:800;letter-spacing:-.02em}
-.numbers span{font-size:.95rem;color:var(--muted);line-height:1.4;display:block;max-width:22ch}
-@media (max-width:760px){.numbers{grid-template-columns:repeat(2,1fr)}}
+.numbers div{padding:24px 24px 26px 0}
+.numbers b{display:block;font-family:var(--display);font-size:1.45rem;line-height:1.15;font-weight:800;letter-spacing:-.02em}
+.numbers span{font-size:.95rem;color:var(--muted);line-height:1.45;display:block;max-width:26ch;margin-top:6px}
+@media (max-width:1100px){.numbers{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.numbers{grid-template-columns:1fr}.numbers div{padding:18px 0 4px}.numbers div:last-child{padding-bottom:22px}.numbers span{max-width:none}}
+.numbers b{white-space:nowrap}
 
 /* sections */
 section{padding:88px 0 0}
@@ -211,10 +213,10 @@ footer{padding:24px 0 40px;color:var(--muted);font-family:var(--display);font-si
   </header>
 
   <div class="numbers" role="list">
-    <div role="listitem"><b>Millions</b><span>of users routed by my skill segmentation model</span></div>
-    <div role="listitem"><b>Millions</b><span>of Creative Pros protected from experimental rollouts</span></div>
-    <div role="listitem"><b>Hundreds of thousands</b><span>of beta users behind my AI Assistant failure analysis</span></div>
-    <div role="listitem"><b>$5M</b><span>yearly cost savings from forecasting at Accenture</span></div>
+    <div role="listitem"><b>Every Photoshop user</b><span>routed by my skill segmentation model to the tutorials and AI features that fit them</span></div>
+    <div role="listitem"><b>Zero regressions</b><span>for Creative Pros through Photoshop's AI-assisted editor launch</span></div>
+    <div role="listitem"><b>Two AI launches</b><span>Photoshop's AI Assistant and AI-assisted editor, both shaped by my models and evals</span></div>
+    <div role="listitem"><b>Adobe-wide</b><span>my segmentation labels now drive personalization and experiment gating across Adobe</span></div>
   </div>
 
   <section id="work" aria-labelledby="work-h">
