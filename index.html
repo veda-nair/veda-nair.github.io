@@ -110,6 +110,19 @@ section{padding:88px 0 0}
 .more{margin-top:20px;font-family:var(--display)}
 @media (max-width:760px){.repos{grid-template-columns:1fr}}
 
+/* news + illustration media */
+a.shot.news{display:flex;flex-direction:column;justify-content:space-between;align-items:stretch;place-items:stretch;padding:32px;text-decoration:none;color:var(--ink);background:var(--sheet);border:2px solid var(--ink);transition:border-color .15s, transform .15s}
+a.shot.news:hover{border-color:var(--seg-a);color:var(--ink)}
+a.shot.news:hover .read{color:var(--seg-a)}
+.news .pub{font-family:var(--display);font-weight:800;font-size:1.05rem}
+.news .headline{font-family:var(--text);font-size:clamp(1.5rem,2.6vw,2.1rem);line-height:1.2;font-weight:600;max-width:20ch}
+.news .meta{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-family:var(--display);font-size:.95rem;color:var(--muted)}
+.news .read{text-decoration:underline;text-decoration-color:var(--seg-a);text-underline-offset:.2em;text-decoration-thickness:2px;color:var(--ink)}
+@media (prefers-reduced-motion: reduce){a.shot.news{transition:none}}
+.shot.art{position:relative;padding:12px}
+.shot.art svg{width:100%;height:100%}
+.shot.art figcaption{position:absolute;right:16px;bottom:12px;font-family:var(--display);font-size:.75rem;color:var(--muted)}
+
 /* experience */
 .timeline{list-style:none;margin:0;padding:0}
 .timeline li{display:grid;grid-template-columns:200px 1fr;gap:24px;padding:24px 0;border-top:1px solid var(--rule)}
@@ -186,29 +199,39 @@ footer{padding:24px 0 40px;color:var(--muted);font-family:var(--display);font-si
     </div>
 
     <article class="project" style="--seg-dot:var(--seg-a)">
-      <figure class="shot"><div class="ph">Add an image: a diagram of how the segment gates feature rollouts</div></figure>
+      <a class="shot news" href="https://www.cnet.com/tech/services-and-software/adobe-photoshop-adds-a-whole-new-ai-editing-mode/" target="_blank" rel="noopener">
+        <span class="pub">CNET</span>
+        <span class="headline">Adobe Photoshop Adds a Whole New AI Editing Mode</span>
+        <span class="meta"><span>August 2026</span><span class="read">Read the article</span></span>
+      </a>
       <div>
         <h3>Pro segmentation for safe rollouts</h3>
-        <p class="ctx">Adobe Photoshop, 2025</p>
+        <p class="ctx">Adobe Photoshop, 2025–2026</p>
         <dl>
+          <dt>The launch</dt>
+          <dd>In August 2026, Photoshop added an AI-assisted editor: a new editing space where people describe edits in plain language, alongside the traditional Pro Editor.</dd>
           <dt>The problem</dt>
-          <dd>Professionals rely on Photoshop for daily, deadline-driven work. An experimental feature that breaks their workflow costs far more than it does for a casual user.</dd>
+          <dd>Professionals rely on Photoshop for daily, deadline-driven work. A change to how the app opens or behaves costs them far more than it costs a casual user.</dd>
           <dt>What I built</dt>
-          <dd>A model that identifies 2.5M Creative Pros so experimental features can be held back from them, while the rest of the 15M+ user base can still be tested.</dd>
+          <dd>A model that identifies 2.5M Creative Pros among 15M+ users. The AI-assisted editor's launch used it to bring the new experience to the right people while protecting professionals' existing workflows.</dd>
         </dl>
-        <p class="result">Mission-critical workflows stayed regression-free while new features kept shipping to everyone else.</p>
+        <p class="result">The new editor shipped without regressions to the workflows professionals depend on.</p>
         <p class="tools">Python, PySpark, MLflow, Databricks</p>
       </div>
     </article>
 
     <article class="project" style="--seg-dot:var(--seg-b)">
-      <figure class="shot"><div class="ph">Add an image: a failure-pattern dashboard (blur any internal data)</div></figure>
+      <a class="shot news" href="https://techcrunch.com/2026/03/10/adobe-is-debuting-an-ai-assistant-for-photoshop/" target="_blank" rel="noopener">
+        <span class="pub">TechCrunch</span>
+        <span class="headline">Adobe is debuting an AI assistant for Photoshop</span>
+        <span class="meta"><span>March 10, 2026</span><span class="read">Read the article</span></span>
+      </a>
       <div>
         <h3>Finding where the AI Assistant fails</h3>
         <p class="ctx">Adobe Photoshop, 2025–present</p>
         <dl>
           <dt>The problem</dt>
-          <dd>Photoshop's AI Assistant was in beta with 750K users, and frustrating answers were scattered across thousands of conversations with no way to see the patterns.</dd>
+          <dd>Adobe opened the Photoshop AI Assistant as a beta on the web and mobile in March 2026, letting people edit by describing changes in plain language. With 750K beta users, frustrating responses were scattered across thousands of conversations, with no way to see the patterns.</dd>
           <dt>What I built</dt>
           <dd>A failure-pattern analysis system that runs evaluations over LangSmith traces, groups failures by cause, and points engineers to the fixes with the biggest payoff.</dd>
         </dl>
@@ -218,7 +241,17 @@ footer{padding:24px 0 40px;color:var(--muted);font-family:var(--display);font-si
     </article>
 
     <article class="project" style="--seg-dot:var(--seg-c)">
-      <figure class="shot"><div class="ph">Add an image: the ATLAS tutorial flow or a chart of the skill segments</div></figure>
+      <figure class="shot art" role="img" aria-label="Illustration: a new user routed to one of three tutorial paths by skill level"><svg viewBox="0 0 400 300" aria-hidden="true">
+  <g font-family="Bricolage Grotesque, system-ui, sans-serif" font-size="13" fill="var(--muted)">
+    <circle cx="60" cy="150" r="34" fill="none" stroke="var(--muted)" stroke-width="2" stroke-dasharray="3 5"/>
+    <text x="60" y="154" text-anchor="middle">New user</text>
+    <path d="M96 150 C150 150 160 70 214 70" stroke="var(--seg-c)" stroke-width="3" fill="none"/>
+    <path d="M96 150 L214 150" stroke="var(--seg-b)" stroke-width="3" fill="none"/>
+    <path d="M96 150 C150 150 160 230 214 230" stroke="var(--seg-a)" stroke-width="3" fill="none"/>
+    <rect x="214" y="48" width="160" height="44" rx="22" fill="var(--seg-c)"/><text x="294" y="75" text-anchor="middle" fill="#fff">Basics tutorial path</text>
+    <rect x="214" y="128" width="160" height="44" rx="22" fill="var(--seg-b)"/><text x="294" y="155" text-anchor="middle" fill="#1B2320">Skill-building path</text>
+    <rect x="214" y="208" width="160" height="44" rx="22" fill="var(--seg-a)"/><text x="294" y="235" text-anchor="middle" fill="#fff">Advanced techniques</text>
+  </g></svg><figcaption>Illustration</figcaption></figure>
       <div>
         <h3>Skill segmentation for guided learning</h3>
         <p class="ctx">Adobe Photoshop, 2024 internship</p>
@@ -234,7 +267,17 @@ footer{padding:24px 0 40px;color:var(--muted);font-family:var(--display);font-si
     </article>
 
     <article class="project" style="--seg-dot:var(--seg-c)">
-      <figure class="shot"><div class="ph">Add an image: an in-product entry point for a GenAI feature</div></figure>
+      <figure class="shot art" role="img" aria-label="Illustration: an in-app prompt suggesting a GenAI feature right after a selection"><svg viewBox="0 0 400 300" aria-hidden="true">
+  <g font-family="Bricolage Grotesque, system-ui, sans-serif">
+    <rect x="40" y="36" width="320" height="200" rx="14" fill="var(--paper)" stroke="var(--rule)" stroke-width="2"/>
+    <rect x="40" y="36" width="320" height="28" rx="14" fill="var(--rule)"/><rect x="40" y="50" width="320" height="14" fill="var(--rule)"/>
+    <circle cx="58" cy="50" r="4" fill="var(--muted)"/><circle cx="72" cy="50" r="4" fill="var(--muted)"/><circle cx="86" cy="50" r="4" fill="var(--muted)"/>
+    <rect x="70" y="86" width="150" height="120" rx="8" fill="none" stroke="var(--seg-a)" stroke-width="2" stroke-dasharray="6 5"/>
+    <rect x="196" y="176" width="146" height="40" rx="20" fill="var(--seg-a)"/>
+    <text x="269" y="201" text-anchor="middle" font-size="13" fill="#fff">Try Generative Fill</text>
+    <path d="M318 206 l8 22 l4 -9 l10 -2 z" fill="var(--ink)" stroke="var(--sheet)" stroke-width="1.5"/>
+    <text x="200" y="270" text-anchor="middle" font-size="12" fill="var(--muted)">A prompt appears right when a selection is made</text>
+  </g></svg><figcaption>Illustration</figcaption></figure>
       <div>
         <h3>Growing adoption of GenAI features</h3>
         <p class="ctx">Adobe Photoshop, 2025–present</p>
@@ -250,7 +293,18 @@ footer{padding:24px 0 40px;color:var(--muted);font-family:var(--display);font-si
     </article>
 
     <article class="project" style="--seg-dot:var(--seg-a)">
-      <figure class="shot"><div class="ph">Add an image: a sample question and answer from the bot (no internal data)</div></figure>
+      <figure class="shot art" role="img" aria-label="Illustration: a product manager asks the bot a usage question and gets a chart back"><svg viewBox="0 0 400 300" aria-hidden="true">
+  <g font-family="Bricolage Grotesque, system-ui, sans-serif" font-size="13">
+    <rect x="150" y="40" width="210" height="52" rx="16" fill="var(--seg-a)"/>
+    <text x="166" y="62" fill="#fff">Which features did new users</text><text x="166" y="80" fill="#fff">try most last week?</text>
+    <rect x="40" y="112" width="250" height="122" rx="16" fill="var(--paper)" stroke="var(--rule)" stroke-width="2"/>
+    <text x="56" y="136" fill="var(--ink)">Top features, new users</text>
+    <rect x="56" y="150" width="170" height="14" rx="7" fill="var(--seg-c)"/>
+    <rect x="56" y="172" width="128" height="14" rx="7" fill="var(--seg-b)"/>
+    <rect x="56" y="194" width="92" height="14" rx="7" fill="var(--seg-a)"/>
+    <text x="56" y="224" font-size="11" fill="var(--muted)">Answered from production data in seconds</text>
+    <text x="200" y="270" text-anchor="middle" font-size="12" fill="var(--muted)">Sample question; no real data shown</text>
+  </g></svg><figcaption>Illustration</figcaption></figure>
       <div>
         <h3>A self-serve data bot for product managers</h3>
         <p class="ctx">Adobe Photoshop, 2025</p>
@@ -266,7 +320,18 @@ footer{padding:24px 0 40px;color:var(--muted);font-family:var(--display);font-si
     </article>
 
     <article class="project" style="--seg-dot:var(--seg-b)">
-      <figure class="shot"><div class="ph">Add an image: a forecast-vs-actual chart</div></figure>
+      <figure class="shot art" role="img" aria-label="Illustration: actual demand followed by a forecast with an uncertainty band"><svg viewBox="0 0 400 300" aria-hidden="true">
+  <g font-family="Bricolage Grotesque, system-ui, sans-serif" font-size="12" fill="var(--muted)">
+    <line x1="44" y1="236" x2="372" y2="236" stroke="var(--rule)" stroke-width="2"/>
+    <line x1="44" y1="40" x2="44" y2="236" stroke="var(--rule)" stroke-width="2"/>
+    <path d="M220 120 L250 104 L280 128 L310 96 L340 112 L370 90 L370 140 L340 150 L310 134 L280 162 L250 140 L220 150 Z" fill="var(--seg-a)" opacity=".15"/>
+    <polyline points="44,180 70,150 96,170 122,130 148,155 174,118 200,140 220,135" fill="none" stroke="var(--ink)" stroke-width="3"/>
+    <polyline points="220,135 250,122 280,145 310,115 340,131 370,115" fill="none" stroke="var(--seg-a)" stroke-width="3" stroke-dasharray="7 6"/>
+    <line x1="220" y1="40" x2="220" y2="236" stroke="var(--muted)" stroke-dasharray="2 4"/>
+    <text x="132" y="60" text-anchor="middle">Actual demand</text>
+    <text x="296" y="60" text-anchor="middle" fill="var(--seg-a)">Forecast</text>
+    <text x="208" y="270" text-anchor="middle">Weeks</text>
+  </g></svg><figcaption>Illustration</figcaption></figure>
       <div>
         <h3>Demand forecasting and inventory optimization</h3>
         <p class="ctx">Accenture, 2021–2023</p>
