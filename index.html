@@ -54,6 +54,7 @@ p{margin:0 0 1em}
 .hero h1{font-size:clamp(2.6rem,6vw,4.6rem)}
 .who{display:flex;align-items:center;gap:16px;margin-bottom:28px}
 .portrait{width:88px;height:88px;border-radius:50%;object-fit:cover;background:var(--rule);flex:none;display:grid;place-items:center;font-family:var(--display);font-size:.7rem;color:var(--muted);text-align:center}
+.who .products{color:var(--ink);font-weight:600}
 .who p{margin:0;font-family:var(--display);font-size:1rem;color:var(--muted);line-height:1.35}
 .lede{font-size:1.3rem;max-width:30ch;margin:24px 0 32px}
 .actions{display:flex;flex-wrap:wrap;gap:12px}
@@ -142,13 +143,6 @@ a.shot.news:hover .cover img{transform:scale(1.03)}
 .trail{width:100%;max-width:200px;height:30px;display:block;margin-bottom:6px}
 @media (max-width:760px){.off-grid{grid-template-columns:1fr;gap:28px}}
 
-.shot.products{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;place-items:start;padding:32px 36px}
-.shot.products figcaption{font-family:var(--display);font-size:.95rem;color:var(--muted);margin-bottom:14px}
-.shot.products ul{list-style:none;margin:0;padding:0;width:100%}
-.shot.products li{display:flex;align-items:center;gap:14px;font-family:var(--display);font-weight:800;font-size:clamp(1.6rem,3vw,2.3rem);letter-spacing:-.02em;padding:8px 0;border-top:1px solid var(--rule)}
-.shot.products li:first-child{border-top:0}
-.shot.products i{width:12px;height:12px;border-radius:50%;flex:none}
-
 /* experience */
 .timeline{list-style:none;margin:0;padding:0}
 .timeline li{display:grid;grid-template-columns:200px 1fr;gap:24px;padding:24px 0;border-top:1px solid var(--rule)}
@@ -191,7 +185,7 @@ footer{padding:24px 0 40px;color:var(--muted);font-family:var(--display);font-si
     <div>
       <div class="who">
         <img class="portrait" src="assets/veda.jpg" alt="Veda Nair" width="88" height="88">
-        <p>Data scientist, Adobe Photoshop<br>San Jose, California</p>
+        <p>Data scientist at Adobe, San Jose<br><span class="products">Photoshop, Lightroom, Fresco and Firefly</span></p>
       </div>
       <h1>I find out who's using a product, and build what each of them needs.</h1>
       <p class="lede">Segmentation models, experiments and GenAI evaluation for Photoshop's millions of users.</p>
@@ -271,15 +265,17 @@ footer{padding:24px 0 40px;color:var(--muted);font-family:var(--display);font-si
     </article>
 
     <article class="project" style="--seg-dot:var(--seg-c)">
-      <figure class="shot products" aria-label="Adobe products I work on: Photoshop, Lightroom, Fresco and Firefly">
-        <figcaption>Products I work on at Adobe</figcaption>
-        <ul>
-          <li><i style="background:var(--seg-a)"></i>Photoshop</li>
-          <li><i style="background:var(--seg-c)"></i>Lightroom</li>
-          <li><i style="background:var(--seg-b)"></i>Fresco</li>
-          <li><i style="background:var(--ink)"></i>Firefly</li>
-        </ul>
-      </figure>
+      <figure class="shot art" role="img" aria-label="Illustration: a new user routed to one of three tutorial paths by skill level"><svg viewBox="0 0 400 300" aria-hidden="true">
+  <g font-family="Bricolage Grotesque, system-ui, sans-serif" font-size="13" fill="var(--muted)">
+    <circle cx="60" cy="150" r="34" fill="none" stroke="var(--muted)" stroke-width="2" stroke-dasharray="3 5"/>
+    <text x="60" y="154" text-anchor="middle">New user</text>
+    <path d="M96 150 C150 150 160 70 214 70" stroke="var(--seg-c)" stroke-width="3" fill="none"/>
+    <path d="M96 150 L214 150" stroke="var(--seg-b)" stroke-width="3" fill="none"/>
+    <path d="M96 150 C150 150 160 230 214 230" stroke="var(--seg-a)" stroke-width="3" fill="none"/>
+    <rect x="214" y="48" width="160" height="44" rx="22" fill="var(--seg-c)"/><text x="294" y="75" text-anchor="middle" fill="#fff">Basics tutorial path</text>
+    <rect x="214" y="128" width="160" height="44" rx="22" fill="var(--seg-b)"/><text x="294" y="155" text-anchor="middle" fill="#1B2320">Skill-building path</text>
+    <rect x="214" y="208" width="160" height="44" rx="22" fill="var(--seg-a)"/><text x="294" y="235" text-anchor="middle" fill="#fff">Advanced techniques</text>
+  </g></svg><figcaption>Illustration</figcaption></figure>
       <div>
         <h3>Skill segmentation for guided learning</h3>
         <p class="ctx">Adobe Photoshop, 2024 internship</p>
