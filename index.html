@@ -111,11 +111,17 @@ section{padding:88px 0 0}
 @media (max-width:760px){.repos{grid-template-columns:1fr}}
 
 /* news + illustration media */
-a.shot.news{display:flex;flex-direction:column;justify-content:space-between;align-items:stretch;place-items:stretch;padding:32px;text-decoration:none;color:var(--ink);background:var(--sheet);border:2px solid var(--ink);transition:border-color .15s, transform .15s}
+a.shot.news{display:flex;flex-direction:column;align-items:stretch;place-items:stretch;padding:0;aspect-ratio:auto;text-decoration:none;color:var(--ink);background:var(--sheet);border:2px solid var(--ink);transition:border-color .15s, transform .15s}
 a.shot.news:hover{border-color:var(--seg-a);color:var(--ink)}
 a.shot.news:hover .read{color:var(--seg-a)}
+.news .cover{position:relative;display:block;aspect-ratio:16/9;overflow:hidden;background:var(--rule)}
+.news .cover img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s}
+a.shot.news:hover .cover img{transform:scale(1.03)}
+.news .credit{position:absolute;right:8px;bottom:6px;font-family:var(--display);font-size:.7rem;color:#fff;background:rgba(0,0,0,.45);padding:1px 6px;border-radius:4px}
+.news .body{display:flex;flex-direction:column;gap:14px;padding:22px 26px 24px;flex:1;justify-content:space-between}
+@media (prefers-reduced-motion: reduce){.news .cover img{transition:none}a.shot.news:hover .cover img{transform:none}}
 .news .pub{font-family:var(--display);font-weight:800;font-size:1.05rem}
-.news .headline{font-family:var(--text);font-size:clamp(1.5rem,2.6vw,2.1rem);line-height:1.2;font-weight:600;max-width:20ch}
+.news .headline{font-family:var(--text);font-size:clamp(1.3rem,2.1vw,1.7rem);line-height:1.2;font-weight:600;max-width:20ch}
 .news .meta{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-family:var(--display);font-size:.95rem;color:var(--muted)}
 .news .read{text-decoration:underline;text-decoration-color:var(--seg-a);text-underline-offset:.2em;text-decoration-thickness:2px;color:var(--ink)}
 @media (prefers-reduced-motion: reduce){a.shot.news{transition:none}}
@@ -213,9 +219,11 @@ footer{padding:24px 0 40px;color:var(--muted);font-family:var(--display);font-si
 
     <article class="project" style="--seg-dot:var(--seg-a)">
       <a class="shot news" href="https://www.cnet.com/tech/services-and-software/adobe-photoshop-adds-a-whole-new-ai-editing-mode/" target="_blank" rel="noopener">
-        <span class="pub">CNET</span>
+        <span class="cover"><img src="https://cdn.mos.cms.futurecdn.net/gcxqpJupoHi2PGXgAHX4j-1440-80.jpg" alt="Photoshop's new AI-assisted editor" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentElement.remove()"><span class="credit">Image: Adobe</span></span>
+        <span class="body"><span class="pub">CNET</span>
         <span class="headline">Adobe Photoshop Adds a Whole New AI Editing Mode</span>
         <span class="meta"><span>August 2026</span><span class="read">Read the article</span></span>
+      </span>
       </a>
       <div>
         <h3>Pro segmentation for safe rollouts</h3>
@@ -235,9 +243,11 @@ footer{padding:24px 0 40px;color:var(--muted);font-family:var(--display);font-si
 
     <article class="project" style="--seg-dot:var(--seg-b)">
       <a class="shot news" href="https://techcrunch.com/2026/03/10/adobe-is-debuting-an-ai-assistant-for-photoshop/" target="_blank" rel="noopener">
-        <span class="pub">TechCrunch</span>
+        <span class="cover"><img src="https://techcrunch.com/wp-content/uploads/2026/03/AIAssistant-1440X810_1x.jpg?resize=1200,675" alt="The AI Assistant in Photoshop" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentElement.remove()"><span class="credit">Image: Adobe</span></span>
+        <span class="body"><span class="pub">TechCrunch</span>
         <span class="headline">Adobe is debuting an AI assistant for Photoshop</span>
         <span class="meta"><span>March 10, 2026</span><span class="read">Read the article</span></span>
+      </span>
       </a>
       <div>
         <h3>Finding where the AI Assistant fails</h3>
