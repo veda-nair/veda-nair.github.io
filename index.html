@@ -123,6 +123,19 @@ a.shot.news:hover .read{color:var(--seg-a)}
 .shot.art svg{width:100%;height:100%}
 .shot.art figcaption{position:absolute;right:16px;bottom:12px;font-family:var(--display);font-size:.75rem;color:var(--muted)}
 
+/* off the clock: intentionally quiet */
+.offclock{padding-top:72px}
+.offclock h2{font-size:1.4rem;font-weight:600;margin-bottom:20px;color:var(--muted)}
+.off-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;border-top:1px solid var(--rule);padding-top:20px;font-size:1rem;line-height:1.55}
+.off-grid h3{font-size:1rem;font-weight:600;margin-bottom:8px}
+.off-grid ul{list-style:none;margin:0;padding:0}
+.off-grid li{padding:3px 0;color:var(--muted)}
+.off-grid li strong{color:var(--ink);font-weight:600}
+.off-grid p{margin:0 0 8px;color:var(--muted)}
+.off-grid .off-cta{color:var(--ink);margin-top:10px}
+.trail{width:100%;max-width:200px;height:30px;display:block;margin-bottom:6px}
+@media (max-width:760px){.off-grid{grid-template-columns:1fr;gap:28px}}
+
 /* experience */
 .timeline{list-style:none;margin:0;padding:0}
 .timeline li{display:grid;grid-template-columns:200px 1fr;gap:24px;padding:24px 0;border-top:1px solid var(--rule)}
@@ -419,6 +432,35 @@ footer{padding:24px 0 40px;color:var(--muted);font-family:var(--display);font-si
           <dt>Platforms</dt><dd>Databricks, Snowflake, Airflow, Azure, Splunk</dd>
           <dt>Analytics</dt><dd>Adobe Analytics, Tableau, Power BI</dd>
         </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="offclock" aria-labelledby="off-h">
+    <h2 id="off-h">Off the clock</h2>
+    <div class="off-grid">
+      <div>
+        <h3>Trail log</h3>
+        <svg class="trail" viewBox="0 0 240 36" aria-hidden="true"><polyline points="4,30 40,18 70,24 104,6 140,20 172,10 206,26 236,14" fill="none" stroke="var(--seg-c)" stroke-width="2" stroke-linejoin="round"/><g fill="var(--seg-c)"><circle cx="4" cy="30" r="3"/><circle cx="104" cy="6" r="3"/><circle cx="172" cy="10" r="3"/><circle cx="236" cy="14" r="3"/></g></svg>
+        <ul>
+          <li>Angels Landing, Zion</li>
+          <li>Skyline Trail, Mt. Rainier</li>
+          <li>Olympic National Park</li>
+          <li>Mt. Tamalpais</li>
+          <li>Solo drive up the coast, San Diego to the Bay Area</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Pit wall</h3>
+        <p>Ferrari fan. I once <a href="https://github.com/veda-nair/formula_one_predictor">built a model to predict F1 race finishes</a>. Ferrari still finds new ways to surprise it.</p>
+      </div>
+      <div>
+        <h3>Causes I support</h3>
+        <ul>
+          <li><strong>Fairer language models.</strong> My graduate research measured how models link jobs to gender.</li>
+          <li><strong>Accessible AI for all.</strong> AI tools that work for everyone, whatever their skill level or background.</li>
+        </ul>
+        <p class="off-cta">Working on either? <a href="mailto:veda.nair09@gmail.com?subject=Causes%20you%20support">Email me</a>.</p>
       </div>
     </div>
   </section>
