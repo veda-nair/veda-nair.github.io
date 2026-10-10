@@ -5,7 +5,7 @@ A single-page static site, hosted free on GitHub Pages. There's no build step: `
 ## Files
 - `index.html`: the page (content, styles and the dot animation)
 - `assets/`: photos and project images (add your own)
-- `resume.pdf`: not added yet. Once a version without your phone number is uploaded, add "Resume" links back to the nav and contact section
+- `resume.pdf`: resume without phone number, linked from the nav, hero and contact section (downloads as `Veda_Nair_Resume.pdf`). To update it, replace this file.
 
 ## Adding images
 - **Portrait:** `assets/veda.jpg` (480×480, location data removed). To change it, replace that file.
